@@ -5,7 +5,7 @@ ThisBuild / version          := "0.1.0"
 ThisBuild / organization     := "com.github.lsteveol"
 
 
-//lazy val rocketChip = RootProject(file("./rocket-chip"))
+lazy val wavCommon = RootProject(file("./wav-chisel-common-hw"))
 
 lazy val root = (project in file("."))
   .settings(
@@ -13,8 +13,8 @@ lazy val root = (project in file("."))
     libraryDependencies ++= Seq(
       "org.scalatest" %% "scalatest" % "3.2.0" % "test",
       "edu.berkeley.cs" %% "chisel3" % "3.4.3",
-      //"edu.berkeley.cs" %% "chiseltest" % "3.5.0-RC1" % "test",
-      //"edu.berkeley.cs" %% "chiseltest" % "0.3.4",
+      //"edu.berkeley.cs" %% "chiseltest" % "0.5.0-RC1" % "test",
+      "edu.berkeley.cs" %% "chiseltest" % "0.3.4",
       "com.github.scopt" %% "scopt" % "4.0.1"
     ),
     scalacOptions ++= Seq(
@@ -27,6 +27,6 @@ lazy val root = (project in file("."))
     addCompilerPlugin("edu.berkeley.cs" % "chisel3-plugin" % "3.4.2" cross CrossVersion.full),
     addCompilerPlugin("org.scalamacros" % "paradise" % "2.1.1" cross CrossVersion.full)
   )
-  //.dependsOn(rocketChip)
+  .dependsOn(wavCommon)
 
 
